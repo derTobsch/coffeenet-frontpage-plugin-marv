@@ -1,0 +1,15 @@
+language: java
+
+script: ./mvnw test
+
+jdk:
+- oraclejdk8
+
+before_deploy:
+  - mvn -DskipTests package
+  - export JAR_FILE=$(ls target/frontpage-plugin-marv*.jar)
+  - echo "deploying $JAR_FILE to GitHub releases"
+
+cache:
+  directories:
+    - $HOME/.m2
