@@ -35,11 +35,12 @@ public class TheAgeOfMarvPlugin implements FrontpagePluginInterface {
     @Override
     public String content() {
 
-        LocalDate birthday = LocalDate.of(1985, 12, 05);
+        LocalDate birthday = LocalDate.of(1985, 12, 5);
         LocalDate now = LocalDate.now(clock);
 
         Period period = Period.between(birthday, now);
 
-        return "Hey Marv, you are " + period.getYears() + " years old. Did you know that?";
+        return "Hey Marv, you are " + period.getYears() + " years " + period.getMonths() + " months "
+            + period.getDays() + " days old. Did you know that?";
     }
 }

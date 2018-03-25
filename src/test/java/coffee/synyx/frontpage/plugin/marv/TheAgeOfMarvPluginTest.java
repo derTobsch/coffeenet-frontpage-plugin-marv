@@ -28,11 +28,11 @@ public class TheAgeOfMarvPluginTest {
     @Test
     public void clockHasCorrectTime() {
 
-        final Instant fixedInstant = LocalDate.of(2014, 12, 05).atStartOfDay().toInstant(UTC);
+        final Instant fixedInstant = LocalDate.of(2014, 11, 4).atStartOfDay().toInstant(UTC);
         final Clock clock = Clock.fixed(fixedInstant, systemDefault());
         final TheAgeOfMarvPlugin sut = new TheAgeOfMarvPlugin(clock);
 
         final String content = sut.content();
-        assertThat(content, is("Hey Marv, you are 29 years old. Did you know that?"));
+        assertThat(content, is("Hey Marv, you are 28 years 10 months 30 days old. Did you know that?"));
     }
 }
